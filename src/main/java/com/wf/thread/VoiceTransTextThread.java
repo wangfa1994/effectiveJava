@@ -32,6 +32,7 @@ public class VoiceTransTextThread implements Runnable {
 
         try {
             Thread.sleep(5000);
+            // 线程业务处理
             System.out.println("recordId:"+recordNo+"__tapeId:"+tapeId);
         }catch (Exception e){
 

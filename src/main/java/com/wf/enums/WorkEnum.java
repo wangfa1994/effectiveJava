@@ -7,38 +7,46 @@ package com.wf.enums;
  */
 public enum WorkEnum {
 
-    WORKNUM("1","WORKNUM"),
-    SHOPNUM("2","SHOPNUM");
+    CALL(1,"CALL"),
+    SMS(2,"SMS"),
+    WECHAT(3,"WECHAT");
 
 
-    private String code;
+
+    private Integer code;
     private String desc;
 
-    WorkEnum(String code, String desc) {
-        this.code = code;
-        this.desc = desc;
-    }
 
-    public String getBussinesssNo() {
+    public Integer getCode() {
         return code;
     }
 
-    public void setBussinesssNo(String code) {
+    public void setCode(Integer code) {
         this.code = code;
     }
 
-    public String getBussinessName() {
+    public String getDesc() {
         return desc;
     }
 
-    public void setBussinessName(String desc) {
+    public void setDesc(String desc) {
         this.desc = desc;
     }
 
-    public static WorkEnum getSexEnumByCode(String code){
-        for(WorkEnum sexEnum : WorkEnum.values()){
-            if(code.equals(sexEnum.getBussinesssNo())){
-                return sexEnum;
+
+    WorkEnum(Integer code, String desc) {
+        this.code = code;
+        this.desc = desc;
+    }
+
+
+    public static WorkEnum getWorkEnumBycode(Integer code){
+        if (code == null){
+            return null;
+        }
+        for (WorkEnum workEnum : WorkEnum.values()){
+            if(workEnum.getCode().equals(code)){
+                return workEnum;
             }
         }
         return null;
